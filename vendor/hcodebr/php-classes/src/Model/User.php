@@ -4,6 +4,7 @@ namespace Hcode\Model;
 
 use \Hcode\DB\Sql;
 use \Hcode\Model;
+use \Hcode\Mailer;
 
 class User extends Model {
 
@@ -140,7 +141,7 @@ class User extends Model {
 			":iduser"=>$this->getiduser()
 		));
 
-	} 
+	}
 
 	public static function getForgot($email, $inadmin = true)
 	{

@@ -6,9 +6,9 @@ use Rain\Tpl;
 
 class Mailer {
 
-	const USERNAME = "igoralmeidac00@gmail.com"
+	const USERNAME = "igoralmeidac00@gmail.com";
 	const PASSWORD = "<?password?>";
-	const NAME_FROM = "Igor Almeida"
+	const NAME_FROM = "Igor Almeida";
 
 	private $mail;
 
@@ -31,7 +31,7 @@ class Mailer {
 
 		$html = $tpl->draw($tplName, true);
 
-		$this->mail = new \PHPMailer();
+		$this->mail = new PHPMailer(true);
 
 		//Tell PHPMailer to use SMTP
 		$this->mail->isSMTP();
@@ -52,6 +52,15 @@ class Mailer {
 		// - 465 for SMTP with implicit TLS, a.k.a. RFC8314 SMTPS or
 		// - 587 for SMTP+STARTTLS
 		$this->mail->Port = 587;
+
+		$this->mail->isSMTP();
+			$this->mail->SMTPOptions = array(
+			'ssl' => array(
+        	'verify_peer' => false,
+        	'verify_peer_name' => false,
+        	'allow_self_signed' => true
+    )
+);
 
 		//Set the encryption mechanism to use:
 		// - SMTPS (implicit TLS on port 465) or
