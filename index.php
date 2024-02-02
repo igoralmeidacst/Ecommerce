@@ -169,7 +169,7 @@ $app->post("/admin/forgot", function() {
 	
 });
 
-$app->get("admin/forgot/sent", function(){
+$app->get("/admin/forgot/sent", function(){
 
 	$page = new PageAdmin([
 		"header"=>false,
