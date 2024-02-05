@@ -229,7 +229,7 @@ class User extends Model {
         a.idrecovery = :idrecovery
         AND
         a.dtrecovery IS NULL
-         ND
+        AND
         DATE_ADD(a.dtregister, INTERVAL 1 HOUR) >= NOW();
      	", array(
         ":idrecovery"=>$idrecovery
@@ -243,7 +243,30 @@ class User extends Model {
         return $results[0];
      }
 
+ 	}
+
+ 	public static function setForgotUsed($idrecovery)
+ 	{
+
+ 		$sql = new Sql();
+
+ 		$sql->query("UPDATE tb_userspasswordsrecoveries SET dtrecovery = NOW() WHERE idrecovery = :idrecovery", array(
+ 					":idrecovery"=>idrecovery
+ 		));
+
  	}	
+
+ 	public function setPassword($password)
+ 	{
+
+ 		$sql = new Sql();
+
+ 		$sql->query("UPDATE tb_users SET despassword = :password WHERE iduser = :iduser", array(
+ 			":password"=>$password,
+ 			":iduser"=>$this->getiduser()
+ 		));
+
+ 	}
 
 }
 
