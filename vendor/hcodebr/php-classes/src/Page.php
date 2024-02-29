@@ -14,7 +14,8 @@ class Page {
 		"data"=>[]
 	];
 
-	public function __construct($opts = array(), $tpl_dir = "/views/") {
+	public function __construct($opts = array(), $tpl_dir = "/views/") 
+	{
 
 		$this->options = array_merge($this->defaults, $opts);
 
@@ -29,6 +30,12 @@ class Page {
 	$this->tpl = new Tpl;
 
 	$this->setData($this->options["data"]);
+
+	$pageName = explode("/categories/:idcategory", $_SERVER['REQUEST_URI']);
+
+	$pageName = end($pageName);
+
+	$this->tpl->assign("pageName", $pageName);
 
 	if ($this->options["header"] === true) $this->tpl->draw("header");
 
