@@ -82,7 +82,7 @@ class Cart extends Model {
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_carts WHERE idcart = :idcart", [
-			':idcart'=>idcart
+			':idcart'=>$idcart
 		]);
 
 		if (count($results) > 0) {
