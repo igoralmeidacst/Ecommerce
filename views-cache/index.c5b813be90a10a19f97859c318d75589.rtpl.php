@@ -6,9 +6,9 @@
 						<img src="/res/site/img/h4-slide.png" alt="Slide">
 						<div class="caption-group">
 							<h2 class="caption title">
-								iPhone <span class="primary">6 <strong>Plus</strong></span>
+								iPhone <span class="primary">15 <strong>Pro Max</strong></span>
 							</h2>
-							<h4 class="caption subtitle">Dual SIM</h4>
+							<h4 class="caption subtitle">Cor - Titânio preto</h4>
 							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
 						</div>
 					</li>
@@ -89,7 +89,7 @@
                                 <div class="product-f-image">
                                     <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
+                                        <a href="/cart/<?php echo htmlspecialchars( $value1["idproduct"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/add" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Comprar</a>
                                         <a href="/products/<?php echo htmlspecialchars( $value1["desurl"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="view-details-link"><i class="fa fa-link"></i> Ver Detalhes</a>
                                     </div>
                                 </div>
