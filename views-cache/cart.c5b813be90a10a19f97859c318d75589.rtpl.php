@@ -1,4 +1,6 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="product-big-title-area">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><link rel="stylesheet" href="css/freteG.css">
+
+<div class="product-big-title-area">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -20,9 +22,11 @@
                     <div class="woocommerce">
 
                         <form action="/checkout">
-                            
+
+                            {if="$error "= ''"}
                             <div class="alert alert-danger" role="alert">
-                            Error!
+                            <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+
                             </div>
 
                             <table cellspacing="0" class="shop_table cart">
@@ -81,8 +85,8 @@
                                     
                                     <div class="coupon">
                                         <label for="cep">CEP:</label>
-                                        <input type="text" placeholder="00000-000" value="" id="cep" class="input-text" name="zipcode">
-                                        <input type="submit" formmethod="post" formaction="/cart/freight" value="CÁLCULAR" class="button">
+                                        <input type="text" placeholder="00000-000" value="<?php echo htmlspecialchars( $cart["deszipcode"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="cep" class="input-text" name="zipcode">
+                                        <input type="submit" formmethod="post" formaction="/cart/freight" value="CALCULAR" class="button">
                                     </div>
 
                                 </div>
@@ -95,17 +99,17 @@
                                         <tbody>
                                             <tr class="cart-subtotal">
                                                 <th>Subtotal</th>
-                                                <td><span class="amount">$700.00</span></td>
+                                                <td><span class="amount">R$<?php echo formatPrice($cart["vlsubtotal"]); ?></span></td>
                                             </tr>
 
                                             <tr class="shipping">
                                                 <th>Frete</th>
-                                                <td>$5.00 <small>prazo de 0 dia(s)</small></td>
+                                                <td>Frete grátis<small></small></td>
                                             </tr>
 
                                             <tr class="order-total">
                                                 <th>Total</th>
-                                                <td><strong><span class="amount">$705.00</span></strong> </td>
+                                                <td><strong><span class="amount">R$<?php echo formatPrice($cart["vlsubtotal"]); ?></span></strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>
