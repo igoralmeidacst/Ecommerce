@@ -23,11 +23,14 @@
 
                         <form action="/checkout">
 
-                            {if="$error "= ''"}
+                            <?php if( $error != '' ){ ?>
+
                             <div class="alert alert-danger" role="alert">
                             <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
 
                             </div>
+                            <?php } ?>
+
 
                             <table cellspacing="0" class="shop_table cart">
                                 <thead>
@@ -86,29 +89,29 @@
                                     <div class="coupon">
                                         <label for="cep">CEP:</label>
                                         <input type="text" placeholder="00000-000" value="<?php echo htmlspecialchars( $cart["deszipcode"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="cep" class="input-text" name="zipcode">
-                                        <input type="submit" formmethod="post" formaction="/cart/freight" value="CALCULAR" class="button">
+                                        <input type="submit" formmethod="post" formaction="/cart/freight" value="CÁLCULAR" class="button">
                                     </div>
 
                                 </div>
 
                                 <div class="cart_totals ">
 
-                                    <h2>Resumo da Compra</h2>
+                                    <h2>Resumo da Compra:</h2>
 
                                     <table cellspacing="0">
                                         <tbody>
                                             <tr class="cart-subtotal">
-                                                <th>Subtotal</th>
+                                                <th>Subtotal:</th>
                                                 <td><span class="amount">R$<?php echo formatPrice($cart["vlsubtotal"]); ?></span></td>
                                             </tr>
 
                                             <tr class="shipping">
-                                                <th>Frete</th>
+                                                <th>Frete:</th>
                                                 <td>Frete grátis<small></small></td>
                                             </tr>
 
                                             <tr class="order-total">
-                                                <th>Total</th>
+                                                <th>Total:</th>
                                                 <td><strong><span class="amount">R$<?php echo formatPrice($cart["vlsubtotal"]); ?></span></strong> </td>
                                             </tr>
                                         </tbody>

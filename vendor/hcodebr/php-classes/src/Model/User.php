@@ -55,6 +55,7 @@ class User extends Model {
 			}
 		}
 	}
+	
 
 	public static function login($login, $password)
 	{
@@ -86,7 +87,6 @@ class User extends Model {
 			throw new \Exception("Usuário inexistente ou senha inválida.");
 		}
 	}
-
 
 	public static function verifyLogin($inadmin = true)
 	{
